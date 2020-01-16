@@ -25,8 +25,6 @@ public class ARObjectPlacer : MonoBehaviour
 
     private void Update()
     {
-        Pose pose = hits[0].pose;
-
         if (Input.touchCount == 0)
         {
             return;
@@ -36,7 +34,9 @@ public class ARObjectPlacer : MonoBehaviour
 
         if(raycastManager.Raycast(touch.position, hits))
         {
-            if(boardActive == false)
+            Pose pose = hits[0].pose;
+
+            if (boardActive == false)
             {
                 Instantiate(gameBoard, pose.position, pose.rotation);
                 boardActive = true;
