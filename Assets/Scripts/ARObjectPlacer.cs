@@ -8,12 +8,17 @@ using UnityEngine.EventSystems;
 public class ARObjectPlacer : MonoBehaviour
 {
     public List<GameObject> objectToPlace = new List<GameObject>();
+    public GameObject gameBoard;
+
     ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    private bool boardActive;
 
     private void Start()
     {
         raycastManager = GetComponent<ARRaycastManager>();
+        boardActive = false;
     }
 
     private void Update()
@@ -27,9 +32,28 @@ public class ARObjectPlacer : MonoBehaviour
 
         if(raycastManager.Raycast(touch.position, hits))
         {
-            Pose pose = hits[0].pose;
-
-            Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], pose.position, pose.rotation);
+            if(boardActive == false)
+            {
+                SpawnBoard();
+            }
+            else
+            {
+                Spawn();
+            }
         }
+    }
+
+    private void Spawn()
+    {
+        Pose pose = hits[0].pose;
+        Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], pose.position, pose.rotation);
+        return;
+    }
+
+    private void SpawnBoard()
+    {
+        Pose pose = hits[0].pose;
+        Instantiate(gameBoard, pose.position, pose.rotation);
+        boardActive = true;
     }
 }

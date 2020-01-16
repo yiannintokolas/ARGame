@@ -357,9 +357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPlace:
-  - {fileID: 6983956040185566560, guid: 6132193e14c524d4fa5f41d375de3f34, type: 3}
-  - {fileID: 3376646319838292907, guid: b3db7319ee011d84d8403b3235aa6c11, type: 3}
+  - {fileID: 6137640530446320665, guid: 22fb48e8c9a73024d9c75a0a2b030fe1, type: 3}
+  - {fileID: 6137640530446320665, guid: 5dc699656f7afa64ebb6a14605972d3c, type: 3}
+  - {fileID: 6137640530446320665, guid: e50926f981f617c4b9a580c32a46bcf4, type: 3}
   - {fileID: 6137640530446320665, guid: a8c09f1adb8b96946b1411412df711e5, type: 3}
+  gameBoard: {fileID: 5932681899908671710, guid: aef5c22af846f8a4da5ba93a814638db,
+    type: 3}
 --- !u!1 &1701050856
 GameObject:
   m_ObjectHideFlags: 0
