@@ -14,16 +14,20 @@ public class ARObjectPlacer : MonoBehaviour
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private bool boardActive;
+    private bool ballActive;
 
     private void Start()
     {
         raycastManager = GetComponent<ARRaycastManager>();
         boardActive = false;
+        ballActive = false;
     }
 
     private void Update()
     {
-        if(Input.touchCount == 0)
+        Pose pose = hits[0].pose;
+
+        if (Input.touchCount == 0)
         {
             return;
         }
@@ -34,26 +38,20 @@ public class ARObjectPlacer : MonoBehaviour
         {
             if(boardActive == false)
             {
-                SpawnBoard();
+                Instantiate(gameBoard, pose.position, pose.rotation);
+                boardActive = true;
             }
-            else
+            else if (ballActive == false)
             {
-                Spawn();
+                Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], pose.position, pose.rotation);
+                ballActive = true;
+                Invoke("Reset", 3);
             }
         }
     }
 
-    private void Spawn()
+    private void Reset()
     {
-        Pose pose = hits[0].pose;
-        Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], pose.position, pose.rotation);
-        return;
-    }
-
-    private void SpawnBoard()
-    {
-        Pose pose = hits[0].pose;
-        Instantiate(gameBoard, pose.position, pose.rotation);
-        boardActive = true;
+        ballActive = false;
     }
 }
