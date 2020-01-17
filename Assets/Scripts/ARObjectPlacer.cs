@@ -8,19 +8,30 @@ using UnityEngine.EventSystems;
 public class ARObjectPlacer : MonoBehaviour
 {
     public List<GameObject> objectToPlace = new List<GameObject>();
-    public GameObject gameBoard;
     public Transform spawn;
+
+    public GameObject redBoard;
+    public GameObject greenBoard;
+    public GameObject blueBoard;
+    public GameObject yellowBoard;
+
+    private bool redActive;
+    private bool greenActive;
+    private bool blueActive;
+    private bool yellowActive;
 
     ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
-    private bool boardActive;
+    
     private bool ballActive;
 
     private void Start()
     {
         raycastManager = GetComponent<ARRaycastManager>();
-        boardActive = false;
+        redActive = false;
+        blueActive = false;
+        greenActive = false;
+        yellowActive = false;
         ballActive = false;
     }
 
@@ -37,16 +48,36 @@ public class ARObjectPlacer : MonoBehaviour
         {
             Pose pose = hits[0].pose;
 
-            if (boardActive == false)
+            if (redActive == false)
             {
-                Instantiate(gameBoard, pose.position, pose.rotation);
-                boardActive = true;
+                Instantiate(redBoard, pose.position, pose.rotation);
+                redActive = true;
+                return;
             }
-            else if (ballActive == false) ;
+            else if (blueActive == false)
+            {
+                Instantiate(blueBoard, pose.position, pose.rotation);
+                blueActive = true;
+                return;
+            }
+            else if (greenActive == false)
+            {
+                Instantiate(greenBoard, pose.position, pose.rotation);
+                greenActive = true;
+                return;
+            }
+            else if (yellowActive == false)
+            {
+                Instantiate(yellowBoard, pose.position, pose.rotation);
+                yellowActive = true;
+                return;
+            }
+
+            else if (ballActive == false)
             {
                 Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
                 ballActive = true;
-                Invoke("Reset", 3);
+                Invoke("Reset", 1);
             }
         }
     }

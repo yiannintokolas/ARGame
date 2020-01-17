@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2936051880051732452}
   - component: {fileID: 5693174182403365724}
   - component: {fileID: 1983789305026068723}
-  - component: {fileID: 4899268650717889461}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Yellow
@@ -120,17 +119,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32790fb7e5cb24047a1114f544be4b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4899268650717889461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6137640530446320665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08152edf1399bfe4cbb7e64367438c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

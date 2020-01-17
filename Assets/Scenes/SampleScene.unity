@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,7 +251,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3.59e-43, y: 0, z: 0, w: 2.3510604e-38}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -361,9 +361,15 @@ MonoBehaviour:
   - {fileID: 6137640530446320665, guid: 5dc699656f7afa64ebb6a14605972d3c, type: 3}
   - {fileID: 6137640530446320665, guid: e50926f981f617c4b9a580c32a46bcf4, type: 3}
   - {fileID: 6137640530446320665, guid: a8c09f1adb8b96946b1411412df711e5, type: 3}
-  gameBoard: {fileID: 5932681899908671710, guid: aef5c22af846f8a4da5ba93a814638db,
-    type: 3}
   spawn: {fileID: 1208052303}
+  redBoard: {fileID: 7135402785392167749, guid: da48f7c3e12930245aca4646d3d5f0bd,
+    type: 3}
+  greenBoard: {fileID: 7020523969316389380, guid: 10d56424aaf69aa4ab8cbad30bb0e324,
+    type: 3}
+  blueBoard: {fileID: 6343519561515135209, guid: de8f7d1a997eaa6488bf5a8a267552a9,
+    type: 3}
+  yellowBoard: {fileID: 4672457740542194216, guid: df2a9a4c8e4b3e446bbf4641248851ed,
+    type: 3}
 --- !u!1 &1208052302
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +399,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1701050861}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1301962898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301962899}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1301962899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301962898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701050856
 GameObject:
