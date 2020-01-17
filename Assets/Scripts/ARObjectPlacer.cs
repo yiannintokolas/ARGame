@@ -42,7 +42,7 @@ public class ARObjectPlacer : MonoBehaviour
                 Instantiate(gameBoard, pose.position, pose.rotation);
                 boardActive = true;
             }
-            else if (ballActive == false && boardActive == true)
+            else
             {
                 Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
                 ballActive = true;
