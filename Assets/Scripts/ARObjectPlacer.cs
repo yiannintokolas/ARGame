@@ -9,6 +9,7 @@ public class ARObjectPlacer : MonoBehaviour
 {
     public List<GameObject> objectToPlace = new List<GameObject>();
     public GameObject gameBoard;
+    public Transform spawn;
 
     ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -41,9 +42,9 @@ public class ARObjectPlacer : MonoBehaviour
                 Instantiate(gameBoard, pose.position, pose.rotation);
                 boardActive = true;
             }
-            else if (ballActive == false)
+            else if (ballActive == false && boardActive == true)
             {
-                Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], pose.position, pose.rotation);
+                Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
                 ballActive = true;
                 Invoke("Reset", 3);
             }
