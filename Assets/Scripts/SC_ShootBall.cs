@@ -16,6 +16,6 @@ public class SC_ShootBall : MonoBehaviour
 
     private void Shoot()
     {
-        rb.AddForce(0, 0, force, ForceMode.Impulse);
+        rb.AddRelativeForce(0, 0, force, ForceMode.Impulse);
     }
 }
