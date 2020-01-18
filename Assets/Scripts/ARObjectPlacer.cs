@@ -20,6 +20,8 @@ public class ARObjectPlacer : MonoBehaviour
     private bool blueActive;
     private bool yellowActive;
 
+    private bool canShoot;
+
     ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     
@@ -48,39 +50,44 @@ public class ARObjectPlacer : MonoBehaviour
         {
             Pose pose = hits[0].pose;
 
-            if (redActive == false)
+            if (canShoot == true)
             {
-                Instantiate(redBoard, pose.position, pose.rotation);
-                redActive = true;
-                Invoke("Reset", 2);
-                blueActive = false;
-            }
-            else if (blueActive == false)
-            {
-                Instantiate(blueBoard, pose.position, pose.rotation);
-                blueActive = true;
-                Invoke("Reset", 2);
-                greenActive = false;
-            }
-            else if (greenActive == false)
-            {
-                Instantiate(greenBoard, pose.position, pose.rotation);
-                greenActive = true;
-                Invoke("Reset", 2);
-                yellowActive = false;
-            }
-            else if (yellowActive == false)
-            {
-                Instantiate(yellowBoard, pose.position, pose.rotation);
-                yellowActive = true;
-                Invoke("Reset", 2);
-            }
+                if (redActive == false)
+                {
+                    Instantiate(redBoard, pose.position, pose.rotation);
+                    redActive = true;
+                    Invoke("Reset", 2);
+                    canShoot = true;
+                }
+                else if (blueActive == false)
+                {
+                    Instantiate(blueBoard, pose.position, pose.rotation);
+                    blueActive = true;
+                    Invoke("Reset", 2);
+                    canShoot = true;
+                }
+                else if (greenActive == false)
+                {
+                    Instantiate(greenBoard, pose.position, pose.rotation);
+                    greenActive = true;
+                    Invoke("Reset", 2);
+                    canShoot = true;
+                }
+                else if (yellowActive == false)
+                {
+                    Instantiate(yellowBoard, pose.position, pose.rotation);
+                    yellowActive = true;
+                    Invoke("Reset", 2);
+                    canShoot = true;
+                }
 
-            else if (ballActive == false)
-            {
-                Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
-                ballActive = true;
-                Invoke("Reset", 1);
+                else if (ballActive == false)
+                {
+                    Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
+                    ballActive = true;
+                    Invoke("Reset", 1);
+                    canShoot = true;
+                }
             }
         }
     }
@@ -88,8 +95,6 @@ public class ARObjectPlacer : MonoBehaviour
     private void Reset()
     {
         ballActive = false;
-        blueActive = true;
-        greenActive = true;
-        ballActive = true;
+        canShoot = false;
     }
 }
