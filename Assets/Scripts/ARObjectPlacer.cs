@@ -52,25 +52,25 @@ public class ARObjectPlacer : MonoBehaviour
             {
                 Instantiate(redBoard, pose.position, pose.rotation);
                 redActive = true;
-                return;
+                Invoke("Reset", 2);
             }
             else if (blueActive == false)
             {
                 Instantiate(blueBoard, pose.position, pose.rotation);
                 blueActive = true;
-                return;
+                Invoke("Reset", 2);
             }
             else if (greenActive == false)
             {
                 Instantiate(greenBoard, pose.position, pose.rotation);
                 greenActive = true;
-                return;
+                Invoke("Reset", 2);
             }
             else if (yellowActive == false)
             {
                 Instantiate(yellowBoard, pose.position, pose.rotation);
                 yellowActive = true;
-                return;
+                Invoke("Reset", 2);
             }
 
             else if (ballActive == false)
