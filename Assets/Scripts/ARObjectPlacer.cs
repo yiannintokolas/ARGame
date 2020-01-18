@@ -53,18 +53,21 @@ public class ARObjectPlacer : MonoBehaviour
                 Instantiate(redBoard, pose.position, pose.rotation);
                 redActive = true;
                 Invoke("Reset", 2);
+                blueActive = false;
             }
             else if (blueActive == false)
             {
                 Instantiate(blueBoard, pose.position, pose.rotation);
                 blueActive = true;
                 Invoke("Reset", 2);
+                greenActive = false;
             }
             else if (greenActive == false)
             {
                 Instantiate(greenBoard, pose.position, pose.rotation);
                 greenActive = true;
                 Invoke("Reset", 2);
+                yellowActive = false;
             }
             else if (yellowActive == false)
             {
@@ -85,5 +88,8 @@ public class ARObjectPlacer : MonoBehaviour
     private void Reset()
     {
         ballActive = false;
+        blueActive = true;
+        greenActive = true;
+        ballActive = true;
     }
 }
