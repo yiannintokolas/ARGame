@@ -61,15 +61,15 @@ public class ARObjectPlacer : MonoBehaviour
                     redActive = true;
                     StartCoroutine(HoldUp());
                 }
-                if (redActive == true)
+
+                if (redActive == true && blueActive == false)
                 {
                     Instantiate(blueBoard, pose.position, pose.rotation);
                     blueActive = true;
                     StartCoroutine(HoldUp());
                 }
 
-
-                else
+                else if (ballActive == false)
                 {
                     Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
                     ballActive = true;
@@ -84,6 +84,8 @@ public class ARObjectPlacer : MonoBehaviour
 
     IEnumerator HoldUp()
     {
+        ballActive = false;
+        canShoot = false;
         yield return new WaitForSeconds(2);
     }
 }
