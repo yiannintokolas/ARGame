@@ -55,6 +55,12 @@ public class ARObjectPlacer : MonoBehaviour
 
             if (canShoot == true)
             {
+                if (redActive == false)
+                {
+                    Instantiate(redBoard, pose.position, pose.rotation);
+                    redActive = true;
+                    StartCoroutine(HoldUp());
+                }
                 if (redActive == true)
                 {
                     Instantiate(blueBoard, pose.position, pose.rotation);
@@ -62,12 +68,6 @@ public class ARObjectPlacer : MonoBehaviour
                     StartCoroutine(HoldUp());
                 }
 
-                if (redActive == false)
-                {
-                    Instantiate(redBoard, pose.position, pose.rotation);
-                    redActive = true;
-                    StartCoroutine(HoldUp());
-                }
 
                 else
                 {
