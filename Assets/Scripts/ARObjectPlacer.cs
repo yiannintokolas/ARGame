@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ARObjectPlacer : MonoBehaviour
 {
@@ -11,14 +12,10 @@ public class ARObjectPlacer : MonoBehaviour
     public Transform spawn;
 
     public GameObject redBoard;
-    public GameObject greenBoard;
     public GameObject blueBoard;
-    public GameObject yellowBoard;
 
     private bool redActive;
-    private bool greenActive;
     private bool blueActive;
-    private bool yellowActive;
 
     private bool canShoot;
 
@@ -27,14 +24,20 @@ public class ARObjectPlacer : MonoBehaviour
     
     private bool ballActive;
 
+    private float currentTime;
+    private float startTime = 30f;
+    
+
     private void Start()
     {
         raycastManager = GetComponent<ARRaycastManager>();
         redActive = false;
         blueActive = false;
-        greenActive = false;
-        yellowActive = false;
         ballActive = false;
+
+        canShoot = true;
+
+        currentTime = startTime;
     }
 
     private void Update()
@@ -52,49 +55,35 @@ public class ARObjectPlacer : MonoBehaviour
 
             if (canShoot == true)
             {
+                if (redActive == true)
+                {
+                    Instantiate(blueBoard, pose.position, pose.rotation);
+                    blueActive = true;
+                    StartCoroutine(HoldUp());
+                }
+
                 if (redActive == false)
                 {
                     Instantiate(redBoard, pose.position, pose.rotation);
                     redActive = true;
-                    Invoke("Reset", 2);
-                    canShoot = true;
-                }
-                else if (blueActive == false)
-                {
-                    Instantiate(blueBoard, pose.position, pose.rotation);
-                    blueActive = true;
-                    Invoke("Reset", 2);
-                    canShoot = true;
-                }
-                else if (greenActive == false)
-                {
-                    Instantiate(greenBoard, pose.position, pose.rotation);
-                    greenActive = true;
-                    Invoke("Reset", 2);
-                    canShoot = true;
-                }
-                else if (yellowActive == false)
-                {
-                    Instantiate(yellowBoard, pose.position, pose.rotation);
-                    yellowActive = true;
-                    Invoke("Reset", 2);
-                    canShoot = true;
+                    StartCoroutine(HoldUp());
                 }
 
-                else if (ballActive == false)
+                else
                 {
                     Instantiate(objectToPlace[Random.Range(0, objectToPlace.Count)], spawn.position, spawn.rotation);
                     ballActive = true;
-                    Invoke("Reset", 1);
-                    canShoot = true;
+                    StartCoroutine(HoldUp());
                 }
             }
+
+            canShoot = true;
+
         }
     }
 
-    private void Reset()
+    IEnumerator HoldUp()
     {
-        ballActive = false;
-        canShoot = false;
+        yield return new WaitForSeconds(2);
     }
 }

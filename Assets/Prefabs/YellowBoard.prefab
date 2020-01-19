@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4926533376737232461}
   - component: {fileID: 1452620274283127495}
   - component: {fileID: 899402064208748684}
-  - component: {fileID: 2468161921100872723}
+  - component: {fileID: 2472693909534598066}
   m_Layer: 0
-  m_Name: Yellow 1
+  m_Name: YellowBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2468161921100872723
+--- !u!114 &2472693909534598066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,6 +118,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4672457740542194216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08152edf1399bfe4cbb7e64367438c55, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0cf176c0a54bd4db4812cf690a96fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

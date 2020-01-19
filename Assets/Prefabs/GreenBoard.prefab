@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7851887287796597586}
   - component: {fileID: 8382000466254877842}
   - component: {fileID: 7477325603757618782}
-  - component: {fileID: 7091359594122404183}
+  - component: {fileID: 6088328855366111121}
   m_Layer: 0
-  m_Name: Green 1
+  m_Name: GreenBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7091359594122404183
+--- !u!114 &6088328855366111121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,6 +118,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7020523969316389380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df7f37dbb4dd2148b4b8053691378a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0cf176c0a54bd4db4812cf690a96fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
