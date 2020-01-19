@@ -40,6 +40,7 @@ public class ARObjectPlacer : MonoBehaviour
         currentTime = startTime;
     }
 
+
     private void Update()
     {
         if (Input.touchCount == 0)
