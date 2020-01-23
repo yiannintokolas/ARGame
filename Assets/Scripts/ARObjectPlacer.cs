@@ -13,6 +13,8 @@ public class ARObjectPlacer : MonoBehaviour
 
     public GameObject redBoard;
     public GameObject blueBoard;
+    private GameObject b1;
+    private GameObject r1;
 
     private bool redActive;
     private bool blueActive;
@@ -26,6 +28,10 @@ public class ARObjectPlacer : MonoBehaviour
 
     private float currentTime;
     private float startTime = 30f;
+
+    [SerializeField] Text timer;
+    [SerializeField] GameObject gameOverPopup;
+    [SerializeField] GameObject winPopup;
     
 
     private void Start()
@@ -38,11 +44,23 @@ public class ARObjectPlacer : MonoBehaviour
         canShoot = true;
 
         currentTime = startTime;
+
+        gameOverPopup.SetActive(false);
+        winPopup.SetActive(false);
     }
 
 
     private void Update()
     {
+        GameState();
+
+        if(blueActive == true)
+        {
+            currentTime -= Time.deltaTime;
+        }
+
+        timer.text = currentTime.ToString("0");
+
         if (Input.touchCount == 0)
         {
             return;
@@ -50,7 +68,7 @@ public class ARObjectPlacer : MonoBehaviour
 
         Touch touch = Input.GetTouch(0);
 
-        if(raycastManager.Raycast(touch.position, hits))
+        if(raycastManager.Raycast(touch.position, hits) && touch.phase == TouchPhase.Began)
         {
             Pose pose = hits[0].pose;
 
@@ -60,10 +78,11 @@ public class ARObjectPlacer : MonoBehaviour
                 {
                     Instantiate(redBoard, pose.position, pose.rotation);
                     redActive = true;
+                    winPopup.SetActive(false);
                     StartCoroutine(HoldUp());
                 }
 
-                if (redActive == true && blueActive == false)
+                else if (redActive == true && blueActive == false)
                 {
                     Instantiate(blueBoard, pose.position, pose.rotation);
                     blueActive = true;
@@ -89,4 +108,24 @@ public class ARObjectPlacer : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(2);
     }
+
+    private void GameState()
+    {
+
+        if(currentTime <= 0)
+        {
+            currentTime = 0;
+            gameOverPopup.SetActive(true);
+        }
+
+        b1 = GameObject.FindGameObjectWithTag("Blue");
+        r1 = GameObject.FindGameObjectWithTag("Red");
+
+        if(b1 == null && r1 == null)
+        {
+            winPopup.SetActive(true);
+        }
+
+    }
+    
 }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - Blue
+  - Board
+  - Red
   layers:
   - Default
   - TransparentFX
