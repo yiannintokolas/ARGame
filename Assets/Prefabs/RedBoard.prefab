@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8422330055852621695}
   - component: {fileID: 1548162864414147448}
   - component: {fileID: 4198878069535948498}
+  - component: {fileID: 4200434578603134372}
   m_Layer: 0
   m_Name: RedBoard
   m_TagString: Red
@@ -88,7 +89,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7135402785392167749}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -121,3 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0cf176c0a54bd4db4812cf690a96fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 7135402785392167749}
+--- !u!136 &4200434578603134372
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135402785392167749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
