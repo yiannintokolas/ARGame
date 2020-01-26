@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0cf176c0a54bd4db4812cf690a96fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 7135402785392167749}
+  board: {fileID: 1976851940415098781}
 --- !u!136 &4200434578603134372
 CapsuleCollider:
   m_ObjectHideFlags: 0

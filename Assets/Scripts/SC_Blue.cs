@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SC_Blue : MonoBehaviour
 {
-    public GameObject board;
+    public Renderer board;
 
 
     private void Start()
     {
-        board.SetActive(false);
+        board = GetComponent<Renderer>();
     }
 
 
@@ -17,11 +17,11 @@ public class SC_Blue : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            board.SetActive(true);
+            board.enabled = true;
         }
         else
         {
-            board.SetActive(false);
+            board.enabled = false;
         }
     }
 
