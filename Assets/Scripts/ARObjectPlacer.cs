@@ -25,13 +25,11 @@ public class ARObjectPlacer : MonoBehaviour
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     
     private bool ballActive;
-
-    private float currentTime;
-    private float startTime = 30f;
-
-    [SerializeField] Text timer;
+    
     [SerializeField] GameObject gameOverPopup;
     [SerializeField] GameObject winPopup;
+
+    public SC_UI ui;
     
 
     private void Start()
@@ -43,8 +41,6 @@ public class ARObjectPlacer : MonoBehaviour
 
         canShoot = true;
 
-        currentTime = startTime;
-
         gameOverPopup.SetActive(false);
         winPopup.SetActive(false);
     }
@@ -53,13 +49,6 @@ public class ARObjectPlacer : MonoBehaviour
     private void Update()
     {
         GameState();
-
-        if(blueActive == true)
-        {
-            currentTime -= Time.deltaTime;
-        }
-
-        timer.text = currentTime.ToString("0");
 
         if (Input.touchCount == 0)
         {
@@ -112,9 +101,9 @@ public class ARObjectPlacer : MonoBehaviour
     private void GameState()
     {
 
-        if(currentTime <= 0)
+        if(ui.currentTime <= 0)
         {
-            currentTime = 0;
+            ui.currentTime = 0;
             gameOverPopup.SetActive(true);
         }
 
