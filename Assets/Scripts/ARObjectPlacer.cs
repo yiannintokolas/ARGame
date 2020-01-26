@@ -100,7 +100,6 @@ public class ARObjectPlacer : MonoBehaviour
 
     private void GameState()
     {
-
         if(ui.currentTime <= 0)
         {
             ui.currentTime = 0;
@@ -114,7 +113,5 @@ public class ARObjectPlacer : MonoBehaviour
         {
             winPopup.SetActive(true);
         }
-
     }
-    
 }
