@@ -21,6 +21,8 @@ public class ARObjectPlacer : MonoBehaviour
 
     private bool canShoot;
 
+    private bool hide;
+
     ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     
@@ -30,7 +32,6 @@ public class ARObjectPlacer : MonoBehaviour
     [SerializeField] GameObject winPopup;
 
     public SC_UI ui;
-    
 
     private void Start()
     {
@@ -38,6 +39,8 @@ public class ARObjectPlacer : MonoBehaviour
         redActive = false;
         blueActive = false;
         ballActive = false;
+
+        hide = true;
 
         canShoot = true;
 
@@ -76,6 +79,7 @@ public class ARObjectPlacer : MonoBehaviour
                     Instantiate(blueBoard, pose.position, pose.rotation);
                     blueActive = true;
                     StartCoroutine(HoldUp());
+                    hide = false;
                 }
 
                 else if (ballActive == false)
@@ -88,6 +92,11 @@ public class ARObjectPlacer : MonoBehaviour
 
             canShoot = true;
 
+        }
+
+        if(hide == true)
+        {
+            winPopup.SetActive(false);
         }
     }
 
@@ -109,7 +118,7 @@ public class ARObjectPlacer : MonoBehaviour
         b1 = GameObject.FindGameObjectWithTag("Blue");
         r1 = GameObject.FindGameObjectWithTag("Red");
 
-        if(b1 == null && r1 == null)
+        if(b1 == null && r1 == null && hide == false)
         {
             winPopup.SetActive(true);
         }

@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class SC_Blue : MonoBehaviour
 {
-    public Renderer board;
-
+    MeshRenderer rend;
+    bool isVisible = true;
+    public float distanceToReveal = 0.2f;
+    public float distanceToPlayer;
+    
 
     private void Start()
     {
-        board = GetComponent<Renderer>();
+        rend = gameObject.GetComponent<MeshRenderer>();
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.tag.Contains("Player"))
+        distanceToPlayer = Vector3.Distance(transform.position, Camera.main.transform.position);
+
+        if (distanceToPlayer <= distanceToReveal)
         {
-            board.enabled = true;
+            if (isVisible)
+                SetVisible(true);
         }
-        else
+        else if (isVisible)
         {
-            board.enabled = false;
+            SetVisible(false);
         }
     }
+
+    void SetVisible(bool set)
+    {
+        isVisible = set;
+        rend.enabled = set;
+    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,6 +44,4 @@ public class SC_Blue : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

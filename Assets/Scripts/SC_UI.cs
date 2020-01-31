@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SC_UI : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class SC_UI : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
         }
+        
     }
 
     public void SwapPhone()
@@ -40,5 +42,10 @@ public class SC_UI : MonoBehaviour
         go = true;
     }
 
+    public void Restart()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
 
 }
